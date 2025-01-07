@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;  /* Light background color */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center everything horizontally */
+            justify-content: flex-start;
+            height: 70vh; /* Full height to align vertically */
+            text-align: center; /* Center text */
+        }
+
+        /* Header Styles */
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Main container */
+        .main {
+            display: flex;
+            justify-content: space-around;
+            align-items: center; /* Center columns vertically */
+            width: 100%;
+            height: 100vh;
+            gap: 20px;
+            padding: 10px;
+            flex-wrap: wrap;  /* Allows items to wrap on smaller screens */
+        }
+
+        /* Column styles */
+        .col-lg-4 {
+            flex: 1; /* Ensure each column takes equal space */
+            display: flex;
+            justify-content: center; /* Center image horizontally */
+            align-items: center; /* Center image vertically */
+            height: 300px; /* Set fixed height for uniformity */
+          width: 300px;
+            margin-bottom: 20px; /* Adds space below the columns on smaller screens */
+        }
+
+        /* Image container styling */
+        .api, .bank, .cart {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styling for images inside the containers */
+        .api img, .bank img, .cart img {
+            width: auto; /* Maintain image aspect ratio */
+            height: 100%; /* Ensure images fill the container height */
+            object-fit: cover; /* Ensure images cover the area without distortion */
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover effects for images */
+        .api:hover img, .bank:hover img, .cart:hover img {
+            transform: scale(1.1); /* Zoom image slightly */
+        }
+
+        .col-lg-4:hover {
+            transform: scale(1.05); /* Slightly scale up the column on hover */
+        }
+
+        /* Link styling */
+        a {
+            display: block;
+            text-decoration: none;
+        }
+
+        /* Hover effects for the links */
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive design: Tablet and Mobile */
+        
+
+
+        @media (max-width: 768px) {
+            /* Adjust column width on smaller screens (tablets, small laptops) */
+            .col-lg-4 {
+                max-width: 100%; /* Stacks images vertically */
+                height: 200px; /* Adjust height for mobile devices */
+            }
+
+            /* Decrease font size for smaller devices */
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Adjust for very small screens (phones) */
+            .col-lg-4 {
+                max-width: 100%; /* Full width columns */
+                height: 180px; /* Adjust height for mobile */
+            }
+
+            /* Further decrease font size */
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Java Scripts</h1>
+    <div class="main">
+        <div class="col-lg-4">
+            <div class="api">
+                <a href="./api.html" target="_blank"><img src="https://img.freepik.com/free-vector/api-concept-illustration_114360-9822.jpg?uid=R180289202&ga=GA1.1.134861969.1733290771&semt=ais_hybrid" alt="API"></a>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="bank">
+                <a href="./bank/indx.html" target="_blank"><img src="https://img.freepik.com/free-vector/bank-orthogonal-concept_1284-16206.jpg?uid=R180289202&ga=GA1.1.134861969.1733290771&semt=ais_hybrid" alt="Bank"></a>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="cart">
+                <a href="./add to cart/index.html" target="_blank"><img src="https://img.freepik.com/free-photo/black-friday-decoration-with-gift-box-cart_23-2147695965.jpg?uid=R180289202&ga=GA1.1.134861969.1733290771&semt=ais_hybrid" alt="Shopping Cart"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

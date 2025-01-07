@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+        .items{
+            margin: 2%;
+            background-color: antiquewhite;
+            padding: 2%;
+            height: 350px;
+            width: 250px;
+        }
+        .items img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        async function getData(){
+            const url = await fetch('https://dummyjson.com/recipes');
+            let data = await url.json()
+            let myData = data.recipes
+            console.log(myData)
+            let Myproducts = myData.map((e)=>{
+                return(
+                    `
+                    <div class="items">
+                    
+                    
+                    <p>Id:${e.id}</p>    
+                    <p>Name:${e.name}</p>
+                    
+                     
+                    </div>
+                    `
+                )
+            }).join("")
+            document.getElementById('main').innerHTML=Myproducts
+        }getData()
+    </script>
+</body>
+</html>

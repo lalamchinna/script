@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debit Account</title>
+    <style>
+      body {
+        font-size: 18px;
+        margin: 20px;
+        background-color: yellow;
+      }
+      form {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      label,
+      input,
+      button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        font-size: 18px;
+      }
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      a {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Debit Amount</h1>
+    <div id="currentBalance"></div>
+    <form id="debitForm">
+      <label for="amount">Enter Amount to Debit:</label>
+      <input type="number" id="amount" min="1" required />
+      <button type="submit">Debit</button>
+    </form>
+    <a href="./credit.html">Credit</a>
+    <a href="./account.html">View Account</a>
+    <a href="./docment.html">Back</a>
+
+    <script>
+      let balance = parseInt(localStorage.getItem("updateBlnc")) || 0; 
+
+      
+      const displayBalance = document.getElementById("currentBalance");
+      displayBalance.textContent = `Current Balance: ₹${balance}`;
+
+      
+      document
+        .getElementById("debitForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); 
+          const debitAmt = document.getElementById("amount").value;
+          const parsedDebit = parseInt(debitAmt);
+
+          if (!isNaN(parsedDebit) && parsedDebit > 0) {
+            if (parsedDebit <= balance) {
+              const updatedBalance = balance - parsedDebit;
+              alert(`Debit Successful! New Balance: ₹${updatedBalance}`);
+              balance = updatedBalance; 
+              localStorage.setItem("updateBlnc", updatedBalance);
+              displayBalance.textContent = `Current Balance: ₹${updatedBalance}`; 
+            } else {
+              alert("Insufficient balance.");
+            }
+          } else {
+            alert("Please enter a valid amount.");
+          }
+        });
+    </script>
+  </body>
+</html>
